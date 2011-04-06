@@ -1,4 +1,4 @@
-_OUTTOP ?= /tmp/out
+_OUTTOP ?= /tmp/$(notdir $(CURDIR))
 
 .PHONY: all
 all:
@@ -17,3 +17,5 @@ $(_MODULE_NAME)_OUTPUT := $(_OUTTOP)/$(_MODULE)
 _OBJEXT := .o
 _LIBEXT := .a
 _EXEEXT :=
+
+CC := gcc

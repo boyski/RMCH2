@@ -14,15 +14,14 @@ _CLEAN := clean-$(_MODULE_NAME)
 .PHONY: clean $(_CLEAN)
 clean: $(_CLEAN)
 $(_CLEAN):
-   rm -rf $($(patsubst clean-%,%,$@)_OUTPUT)
+	$(RM) -r $($(patsubst clean-%,%,$@)_OUTPUT)
 
 $($(_MODULE_NAME)_OUTPUT)/%.o: $(_MODULE_PATH)/%.c
-   @$(COMPILE.c) -o '$@' '$<'
+	$(strip $(COMPILE.c) -o $@ $<)
 $($(_MODULE_NAME)_OUTPUT)/$(BINARY).a: $($(_MODULE_NAME)_OBJS)
-   @$(AR) r '$@' $^
-   @ranlib '$@'
+	$(strip $(AR) -cr $@ $^)
 $($(_MODULE_NAME)_OUTPUT)/$(BINARY)$(_EXEEXT): $($(_MODULE_NAME)_OBJS)
-   @$(LINK.cpp) $^ -o'$@'
+	$(strip $(LINK.c) $^ -o $@)
 
 $(_MODULE_NAME)_DEFINED := T
 endif
