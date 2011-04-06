@@ -1,0 +1,7 @@
+This is a sample GNU make build structure patterned
+after the one described by John Graham-Cumming in his
+article titled "Painless Non-Recursive Make" at
+http://www.cmcrossroads.com/ask-mr-make/8133-painless-non-recursive-make.
+The original version is identical to his but subsequent versions
+will attempt to enhance it. Any documentation here will presume
+the reader to have read the article first.
